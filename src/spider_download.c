@@ -39,24 +39,12 @@ int spider_download(int webfd, char *request_head, url_t node)
         write(fd, pos + 4, recvsize - (pos - recv_buf + 4));
         //循环读取响应，写入文件
 
-        // while (recvsize = recv(webfd, recv_buf, sizeof(recv_buf), 0) > 0)
-        // {
-        //     write(fd, recv_buf, recvsize);
-        //     bzero(recv_buf, sizeof(recv_buf));
-        // }
-        int n = 0;
-        while (1)
+        while ((recvsize = recv(webfd, recv_buf, sizeof(recv_buf), 0)) > 0)
         {
-            recvsize = recv(webfd, recv_buf, sizeof(recv_buf), 0);
             write(fd, recv_buf, recvsize);
             bzero(recv_buf, sizeof(recv_buf));
-            sleep(1);
-            n++;
-            if(n == 100){
-                break;
-            }
         }
-        
+
         close(fd);
         printf("<STEP 7> Download Success...\n");
     }

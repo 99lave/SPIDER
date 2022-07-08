@@ -1,7 +1,7 @@
 #include <spider.h>
 
 int main(){
-    const char* url= "http://up.enterdesk.com/photo/2012-3-2/enterdesk.com-B526ECADD33DBD367676A93E051BA1EC.jpg";
+    const char* url= "http://i0.hdslb.com/bfs/article/1f3dac966c2d14382cea72c7bed522f61e0c6f4f.jpg";
     int webfd;
     char reqhead[4096];
     url_t node;
